@@ -1,6 +1,6 @@
 # Unity WebGL CI/CD with GitHub Actions
 
-WebGL published here (EDIT IT!) (https://github.com/LogiBearChungus/UnityGame)
+WebGL published here (EDIT IT!) (https://LogiBearChungus.github.io/UnityGame)
 
 # Setup Steps:
 
