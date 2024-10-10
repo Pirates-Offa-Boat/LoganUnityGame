@@ -16,10 +16,10 @@ public class MoveBall : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.W))
-            rb.position += Vector3.up/100;
+            rb.position += Vector3.up/65;
         if (Input.GetKey(KeyCode.A))
-            rb.velocity += Vector3.left/100;
+            rb.position += Vector3.left/75;
         if (Input.GetKey(KeyCode.D))
-            rb.velocity += Vector3.right/100;
+            rb.position += Vector3.right/75;
     }
 }
