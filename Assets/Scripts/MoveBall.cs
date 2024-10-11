@@ -6,13 +6,16 @@ public class MoveBall : MonoBehaviour
 {
     public Rigidbody rb;
     public float moveSpeed = 10f;
-    public float jumpForce = 15f;
+    public float jumpForce = 20f;
     public bool isGrounded;
-    public float gravityMultiplier = 2f; // Custom gravity multiplier
+    public float gravityMultiplier = 2f;
+    public float groundCheckDistance = 0.6f; // Distance to check for ground
+    public LayerMask groundLayer; // Layer to detect ground objects
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezePositionZ; // Constrain Z movement
     }
 
     void Update()
@@ -31,7 +34,6 @@ public class MoveBall : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false; // Prevent double jump
         }
 
         // Apply extra gravity when not grounded
@@ -39,19 +41,22 @@ public class MoveBall : MonoBehaviour
         {
             rb.AddForce(Vector3.down * gravityMultiplier, ForceMode.Acceleration);
         }
+
+        // Check if grounded using raycast
+        GroundCheck();
     }
 
-    // Detect ground collision to enable jumping again
-    void OnCollisionEnter(Collision collision)
+    void GroundCheck()
     {
-        if (collision.contacts[0].normal.y > 0.5f) // Check if landing on a surface
+        // Cast a ray downwards to check for the ground
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer))
         {
             isGrounded = true;
         }
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        isGrounded = false; // When the ball leaves the ground
+        else
+        {
+            isGrounded = false;
+        }
     }
 }
