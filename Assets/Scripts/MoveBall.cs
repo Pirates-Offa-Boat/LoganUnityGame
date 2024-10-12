@@ -8,14 +8,15 @@ public class MoveBall : MonoBehaviour
     public float moveSpeed = 10f;
     public float jumpForce = 20f;
     public bool isGrounded;
-    public float gravityMultiplier = 2f;
+    public float gravityMultiplier = 4.5f;
     public float groundCheckDistance = 0.6f; // Distance to check for ground
     public LayerMask groundLayer; // Layer to detect ground objects
+    public float ballMass = 1f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.constraints = RigidbodyConstraints.FreezePositionZ; // Constrain Z movement
+        rb.mass = ballMass;
     }
 
     void Update()
