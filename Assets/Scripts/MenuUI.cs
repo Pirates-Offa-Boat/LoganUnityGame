@@ -14,7 +14,12 @@ public class MenuUI : MonoBehaviour
       public void QuitGame(){
          Application.Quit();
       }
-        
+      public void ReturnToMenu(){
+         SceneManager.LoadScene("Menu");
+      }
+        public void ViewControls(){
+         SceneManager.LoadScene("Controls");
+      }
 
 
 }
