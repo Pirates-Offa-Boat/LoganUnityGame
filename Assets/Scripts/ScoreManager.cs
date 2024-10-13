@@ -13,8 +13,10 @@ public class ScoreManager : MonoBehaviour
 
     public void Increment()
     {
+        
         currentScore++;
-        ScoreText.text = currentScore.ToString();
+        string displayText = "Coins Collected: " + currentScore.ToString() + "/8";
+        ScoreText.text = displayText;
         if(currentScore == 8){
             SceneManager.LoadScene("WinMenu");
         }
