@@ -4,60 +4,40 @@ using UnityEngine;
 
 public class MoveBall : MonoBehaviour
 {
-    public Rigidbody rb;
     public float moveSpeed = 10f;
-    public float jumpForce = 20f;
-    public bool isGrounded;
-    public float gravityMultiplier = 4.5f;
-    public float groundCheckDistance = 0.6f; // Distance to check for ground
-    public LayerMask groundLayer; // Layer to detect ground objects
-    public float ballMass = 1f;
+    public float jumpForce = 15f;
+    public LayerMask groundLayer;
+    private Rigidbody rb;
+    private bool isGrounded;
+    public float customGravity = 30f; // Custom gravity value
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.mass = ballMass;
     }
 
     void Update()
     {
-        // Horizontal movement (X-axis)
-        float moveX = 0;
-        if (Input.GetKey(KeyCode.A))
-            moveX = -1;
-        if (Input.GetKey(KeyCode.D))
-            moveX = 1;
+        // Horizontal movement
+        float moveInput = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector3(moveInput * moveSpeed, rb.velocity.y, 0);
 
-        Vector3 movement = new Vector3(moveX * moveSpeed, rb.velocity.y, 0);
-        rb.velocity = movement;
+        // Check if grounded
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, groundLayer);
 
-        // Jumping (Y-axis)
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+        // Jump
+        if (isGrounded && Input.GetButtonDown("Jump"))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-
-        // Apply extra gravity when not grounded
-        if (!isGrounded)
-        {
-            rb.AddForce(Vector3.down * gravityMultiplier, ForceMode.Acceleration);
-        }
-
-        // Check if grounded using raycast
-        GroundCheck();
     }
 
-    void GroundCheck()
+    void FixedUpdate()
     {
-        // Cast a ray downwards to check for the ground
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer))
+        // Apply custom gravity for faster falling
+        if (!isGrounded)
         {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
+            rb.AddForce(Vector3.down * customGravity, ForceMode.Acceleration);
         }
     }
 }
