@@ -1,6 +1,6 @@
 # Unity WebGL CI/CD with GitHub Actions
 
-WebGL published here (EDIT IT!) https://Etanjo.github.io/EthanUnityGame/
+WebGL published here (EDIT IT!) https://Pirates-Offa-Boat.github.io/EthanUnityGame/
 
 # Setup Steps: 
 
