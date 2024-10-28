@@ -1,6 +1,6 @@
 # Unity WebGL CI/CD with GitHub Actions
 
-WebGL published here (EDIT IT!) https://Etanjo.github.io/UnityGame/
+WebGL published here (EDIT IT!) https://Etanjo.github.io/EthanUnityGame/
 
 # Setup Steps: 
 
