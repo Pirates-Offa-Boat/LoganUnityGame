@@ -29,6 +29,6 @@ public class ballMove : MonoBehaviour
       if (Input.GetKey(KeyCode.A))
       {
          this.transform.position -= new Vector3(velocity, 0, 0);
-      }
+      } //move that ball
    }
 }
