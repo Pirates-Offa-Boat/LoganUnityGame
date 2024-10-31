@@ -15,12 +15,21 @@ public class Collectible : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var Cube = other.gameObject.GetComponent<CubeMove>();
+        var Ball = other.gameObject.GetComponent<MoveBall>();
         if(Cube != null)
         {
             ScoreManagerRef.Increment();
             Destroy(this.gameObject);
-        }
+        }else{
+            
+        if(Ball != null)
+        {
+            ScoreManagerRef.Increment();
+            Destroy(this.gameObject);
+        }}
     }
 
    
 }
+
+        
