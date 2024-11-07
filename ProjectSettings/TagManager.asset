@@ -8,6 +8,7 @@ TagManager:
   - Ball
   - Platform
   - Evil Ball
+  - Waypoints
   layers:
   - Default
   - TransparentFX
