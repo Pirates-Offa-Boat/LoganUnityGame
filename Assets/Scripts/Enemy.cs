@@ -4,5 +4,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-   public float life = 100;
+   public float life;
+
+   private void Update()
+   {
+      
+      if(life <=0){
+
+         Destroy(gameObject);
+
+      }
+
+      
+   }
 }

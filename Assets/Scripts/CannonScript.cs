@@ -6,23 +6,23 @@ using UnityEngine;
 public class CannonScript : MonoBehaviour
 {
 
-
+   float counter = 0;
    private void OnTriggerStay(Collider other)
    {
       var pirate = other.GetComponent<Enemy>();
 
-      float counter = 0;
+      
       counter++;
       
-      if(counter ==30){
+      if(counter ==60){
 
          if (pirate != null)
          {
 
-            pirate.life -= 20;         
-
+            pirate.life -= 15;
+            counter = 0;
          }
-         counter = 0;
+         
       }
    }
 }
