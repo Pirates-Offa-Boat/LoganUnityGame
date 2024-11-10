@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed;
+   public float life;
     private Waypoints Wpoints;
 
     private int waypointIndex;
@@ -25,5 +26,13 @@ public class Enemy : MonoBehaviour
             // Increment the waypoint index to move to the next waypoint.
             waypointIndex++;
         }
-    }
+      
+      if(life <=0){
+
+         Destroy(gameObject);
+
+      }
+
+      
+   }
 }
