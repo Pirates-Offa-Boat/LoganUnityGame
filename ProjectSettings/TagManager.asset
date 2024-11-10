@@ -8,6 +8,7 @@ TagManager:
   - Ball
   - Platform
   - Evil Ball
+  - Pirate
   layers:
   - Default
   - TransparentFX
