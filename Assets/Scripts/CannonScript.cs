@@ -9,12 +9,15 @@ public class CannonScript : MonoBehaviour
    float counter = 0;
    private void OnTriggerStay(Collider other)
    {
-      var pirate = other.GetComponent<Enemy>();
 
+      if (other == null)
+      {
+         var pirate = other.GetComponent<Enemy>();
+
+      }
+      counter+=Time.deltaTime;
       
-      counter++;
-      
-      if(counter ==60){
+      if(counter >=0.5){
 
          if (pirate != null)
          {
