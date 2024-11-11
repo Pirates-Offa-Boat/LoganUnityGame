@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 4054598136839552090}
   - component: {fileID: 1881096401369643992}
   - component: {fileID: -3481710522182264071}
-  - component: {fileID: 8254364195466918716}
+  - component: {fileID: 8177957867916654777}
   m_Layer: 0
   m_Name: Captain
   m_TagString: Untagged
@@ -472,10 +472,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6319169548614233716}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc285f37b8d99a14899ba08c9b2c01f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 41056316393ed744b851684c681b8efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   life: 200
+  speed: 5
 --- !u!54 &-3481710522182264071
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -492,8 +493,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &8254364195466918716
-CapsuleCollider:
+--- !u!65 &8177957867916654777
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -502,10 +503,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 5
-  m_Height: 5
-  m_Direction: 1
-  m_Center: {x: 0, y: 4, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 10, y: 1, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9194780623108871061
 GameObject:
   m_ObjectHideFlags: 0

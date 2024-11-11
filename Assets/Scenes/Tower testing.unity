@@ -665,9 +665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41056316393ed744b851684c681b8efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 0
   speed: 0
-  Wpoints: {fileID: 0}
-  waypointIndex: 0
 --- !u!1001 &6995819280495724509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -722,6 +721,14 @@ PrefabInstance:
     - target: {fileID: 5888226423303332058, guid: 337a78324c75f0e4b87f5c2d544825b4, type: 3}
       propertyPath: m_Name
       value: pirate_officer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995819279538653972, guid: 337a78324c75f0e4b87f5c2d544825b4, type: 3}
+      propertyPath: life
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995819279538653972, guid: 337a78324c75f0e4b87f5c2d544825b4, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 337a78324c75f0e4b87f5c2d544825b4, type: 3}
