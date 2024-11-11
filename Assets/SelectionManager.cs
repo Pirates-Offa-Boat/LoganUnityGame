@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SelectionManager : MonoBehaviour
 {
-   private TileSelect currentSelection;
+   public TileSelect currentSelection;
 
    void Update()
    {
@@ -19,6 +19,9 @@ public class SelectionManager : MonoBehaviour
 
       if (Physics.Raycast(ray, out hit))
       {
+         if (hit.collider.gameObject.layer == LayerMask.NameToLayer("UI"))
+            return;
+
          Debug.Log("Raycast hit: " + hit.collider.gameObject.name); // Log what was hit
 
          TileSelect tileSelect = hit.collider.GetComponent<TileSelect>();
@@ -30,8 +33,14 @@ public class SelectionManager : MonoBehaviour
             // Deselect previous selection if there is one
             if (currentSelection != null)
             {
+               if(currentSelection == tileSelect){
                currentSelection.Deselect();
-               currentSelection = null;
+                  currentSelection = null;
+               }else{
+                  currentSelection.Deselect();
+                  currentSelection = tileSelect;
+                  currentSelection.Select();
+               }
             }else{
 
             // Select the new object and update currentSelection
@@ -47,13 +56,6 @@ public class SelectionManager : MonoBehaviour
       else
       {
          Debug.Log("Raycast did not hit any objects.");
-
-         // Deselect if clicking in empty space
-         if (currentSelection != null)
-         {
-            currentSelection.Deselect();
-            currentSelection = null;
-         }
       }
    }
 }

@@ -476,6 +476,7 @@ GameObject:
   - component: {fileID: 547622658}
   - component: {fileID: 547622660}
   - component: {fileID: 547622659}
+  - component: {fileID: 547622661}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -502,7 +503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -470, y: -245}
+  m_AnchoredPosition: {x: -811, y: -436}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547622659
@@ -548,7 +549,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1597327892}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 547622661}
+        m_TargetAssemblyTypeName: PlaceTower, Assembly-CSharp
+        m_MethodName: spawnTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &547622660
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -557,6 +570,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547622657}
   m_CullTransparentMesh: 1
+--- !u!114 &547622661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547622657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3eb765bd7ee10447a51408a7d0e4ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tower: {fileID: 5445237551564883885, guid: da7efa94c106965408fb9727cb3e43f6, type: 3}
 --- !u!1001 &682092886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1345,6 +1371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1746d4cee822b3478c6e63cfb4a8e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSelection: {fileID: 0}
 --- !u!1 &1148512069
 GameObject:
   m_ObjectHideFlags: 0
