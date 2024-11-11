@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float life;
     private Waypoints Wpoints;
-
+    public int value;
     private int waypointIndex;
 
     void Start()
@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        // Rotate to face the next waypoint
+        transform.LookAt(Wpoints.waypoints[waypointIndex].position);
+        transform.Rotate(0 , 180, 0);
         // Use Vector3.MoveTowards to move along the x, y, and z axes.
         transform.position = Vector3.MoveTowards(transform.position, Wpoints.waypoints[waypointIndex].position, speed * Time.deltaTime);
 
@@ -36,6 +39,7 @@ public class Enemy : MonoBehaviour
 
         if (life <= 0)
         {
+            LevelManager.main.gold += value;
             LevelManager.onEnemyDestroy.Invoke();
             Destroy(gameObject);
         }

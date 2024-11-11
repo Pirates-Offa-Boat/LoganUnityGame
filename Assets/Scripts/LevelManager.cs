@@ -13,10 +13,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject[] enemyPrefabs;
 
     [Header("Attributes")]
-    [SerializeField] private int baseEnemies = 8;
-    [SerializeField] private float enemiesPerSecond = 0.5f;
+    [SerializeField] private int baseEnemies = 3;
+    [SerializeField] private float enemiesPerSecond = 0.2f;
     [SerializeField] private float timeBetweenWaves = 5f;
-    [SerializeField] private float difficultyScalingFactor = 0.75f;
+    [SerializeField] private float difficultyScalingFactor = 0.5f;
+
+
 
     [Header("Events")]
     public static UnityEvent onEnemyDestroy;
@@ -27,6 +29,8 @@ public class LevelManager : MonoBehaviour
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
+    public int gold = 150;
+
 
     private void Awake()
     {

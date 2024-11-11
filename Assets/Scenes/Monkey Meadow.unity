@@ -188,10 +188,11 @@ MonoBehaviour:
   - {fileID: 6319169548614233716, guid: f3dfe94cba50ca84391491f4f8302a8a, type: 3}
   - {fileID: 5888226423303332058, guid: 337a78324c75f0e4b87f5c2d544825b4, type: 3}
   - {fileID: 5486359939693388251, guid: 5c49c8d33e89cc44981908953cd8c9ab, type: 3}
-  baseEnemies: 8
-  enemiesPerSecond: 2
+  baseEnemies: 3
+  enemiesPerSecond: 0.5
   timeBetweenWaves: 5
-  difficultyScalingFactor: 0.75
+  difficultyScalingFactor: 0.5
+  gold: 150
 --- !u!4 &142567411
 Transform:
   m_ObjectHideFlags: 0
@@ -717,8 +718,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 6.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
