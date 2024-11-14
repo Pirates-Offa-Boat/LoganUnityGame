@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-   public float life;
     public float speed;
+    public float life;
+    public int damage;
     private Waypoints Wpoints;
+    public int value;
     private int waypointIndex;
 
     void Start()
@@ -16,6 +18,10 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        // Rotate to face the next waypoint
+        transform.LookAt(Wpoints.waypoints[waypointIndex].position);
+        transform.Rotate(0 , 180, 0);
+        // Use Vector3.MoveTowards to move along the x, y, and z axes.
         transform.position = Vector3.MoveTowards(transform.position, Wpoints.waypoints[waypointIndex].position, speed * Time.deltaTime);
         // Use Vector3.MoveTowards to move along the x, y, and z axes.
 
@@ -25,7 +31,23 @@ public class Enemy : MonoBehaviour
             // Increment the waypoint index to move to the next waypoint.
             waypointIndex++;
         }
-      if(life <=0){
+
+        if (waypointIndex == Wpoints.Length)
+        {
+            LevelManager.onEnemyDestroy.Invoke();
+            LevelManager.main.DealDamage(damage);
+            Destroy(gameObject);
+            return;
+        }
+
+        if (life <= 0)
+        {
+            LevelManager.main.gold += value;
+            LevelManager.onEnemyDestroy.Invoke();
+            Destroy(gameObject);
+        }
+    }
+}
 
          Destroy(gameObject);
 
