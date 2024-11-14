@@ -388,6 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   life: 50
+  damage: 5
   value: 15
 --- !u!1 &5650488476459342742
 GameObject:

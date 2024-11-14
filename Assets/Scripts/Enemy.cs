@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public float speed;
     public float life;
+    public int damage;
     private Waypoints Wpoints;
     public int value;
     private int waypointIndex;
@@ -33,6 +34,7 @@ public class Enemy : MonoBehaviour
         if (waypointIndex == Wpoints.Length)
         {
             LevelManager.onEnemyDestroy.Invoke();
+            LevelManager.main.DealDamage(damage);
             Destroy(gameObject);
             return;
         }

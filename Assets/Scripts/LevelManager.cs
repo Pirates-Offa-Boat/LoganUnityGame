@@ -30,6 +30,7 @@ public class LevelManager : MonoBehaviour
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
     public int gold = 150;
+    public int health = 100;
 
 
     private void Awake()
@@ -46,6 +47,10 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+        if (health <= 0)
+        {
+            isSpawning = false;
+        }
         if (!isSpawning) return;
         timeSinceLastSpawn += Time.deltaTime;
 
@@ -88,7 +93,10 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(WaitForNextWave());
     }
 
-
+    public void DealDamage(int damage)
+    {
+        health -= damage;
+    }
     private void SpawnEnemy()
     {
         GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
