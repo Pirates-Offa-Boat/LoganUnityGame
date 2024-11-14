@@ -97,8 +97,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8e29559dedff14e9dd4cccf1942fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedMaterial: {fileID: -6538903991835684241, guid: 80363e7317ecfd543be4db9bd6c271d5, type: 3}
+  Tower: {fileID: 0}
+  IndicatorPrefab: {fileID: 3964459449247044388, guid: 9fd02b2c33f38a54ea1bee8fbb8bfcbf, type: 3}
+  Indicator: {fileID: 0}
   selected: 0
+  filled: 0
 --- !u!65 &3953272637364029807
 BoxCollider:
   m_ObjectHideFlags: 0
